@@ -6,3 +6,4 @@ Ever felt frustrated looking for a local restaurant that matches your taste? Wit
 * [Bonus 1] make reservation
 * [Bonus 2] display waiting time
 * [Bonus 3] invite friends
+
