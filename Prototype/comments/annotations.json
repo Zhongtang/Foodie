@@ -1,0 +1,173 @@
+{
+  "comments": [
+    {
+      "canvasID": "s-d12245cc-1680-458d-89dd-4f0d7fb22724",
+      "elementID": "s-pnFavoriteList",
+      "canvasURL": "screens/d12245cc-1680-458d-89dd-4f0d7fb22724",
+      "author": "Zenith",
+      "code": 2,
+      "parentCode": null,
+      "content": "swipe first row left/right to edit/remove list",
+      "date": "Jan 21, 2014 1:24 AM",
+      "prettyDate": "1:24 AM",
+      "fileName": "",
+      "isRead": true
+    }
+    ,{
+      "canvasID": "s-d12245cc-1680-458d-89dd-4f0d7fb22724",
+      "elementID": "s-pnFavoriteList",
+      "canvasURL": "screens/d12245cc-1680-458d-89dd-4f0d7fb22724",
+      "author": "Zenith",
+      "code": 3,
+      "parentCode": null,
+      "content": "tap to open restaurant list",
+      "date": "Jan 21, 2014 1:25 AM",
+      "prettyDate": "1:25 AM",
+      "fileName": "",
+      "isRead": true
+    }
+    ,{
+      "canvasID": "s-d12245cc-1680-458d-89dd-4f0d7fb22724",
+      "elementID": "s-btnAddHeader",
+      "canvasURL": "screens/d12245cc-1680-458d-89dd-4f0d7fb22724",
+      "author": "Zenith",
+      "code": 4,
+      "parentCode": null,
+      "content": "click to add new favorite list",
+      "date": "Jan 21, 2014 2:43 AM",
+      "prettyDate": "2:43 AM",
+      "fileName": "",
+      "isRead": true
+    }
+    ,{
+      "canvasID": "s-d12245cc-1680-458d-89dd-4f0d7fb22724",
+      "elementID": "s-btnEditHeader",
+      "canvasURL": "screens/d12245cc-1680-458d-89dd-4f0d7fb22724",
+      "author": "Zenith",
+      "code": 5,
+      "parentCode": null,
+      "content": "click to edit favorite list",
+      "date": "Jan 21, 2014 2:43 AM",
+      "prettyDate": "2:43 AM",
+      "fileName": "",
+      "isRead": true
+    }
+    ,{
+      "canvasID": "s-dc7bc79a-d7e8-43e4-9e8e-fafd6c337db9",
+      "elementID": "s-btnBack",
+      "canvasURL": "screens/dc7bc79a-d7e8-43e4-9e8e-fafd6c337db9",
+      "author": "Zenith",
+      "code": 6,
+      "parentCode": null,
+      "content": "click to go back to favorite list",
+      "date": "Jan 21, 2014 2:44 AM",
+      "prettyDate": "2:44 AM",
+      "fileName": "",
+      "isRead": true
+    }
+    ,{
+      "canvasID": "s-dc7bc79a-d7e8-43e4-9e8e-fafd6c337db9",
+      "elementID": "s-btnSearch",
+      "canvasURL": "screens/dc7bc79a-d7e8-43e4-9e8e-fafd6c337db9",
+      "author": "Zenith",
+      "code": 7,
+      "parentCode": null,
+      "content": "click to search new favorite restaurants",
+      "date": "Jan 21, 2014 2:44 AM",
+      "prettyDate": "2:44 AM",
+      "fileName": "",
+      "isRead": true
+    }
+    ,{
+      "canvasID": "s-dc7bc79a-d7e8-43e4-9e8e-fafd6c337db9",
+      "elementID": "s-pnRestaurant",
+      "canvasURL": "screens/dc7bc79a-d7e8-43e4-9e8e-fafd6c337db9",
+      "author": "Zenith",
+      "code": 8,
+      "parentCode": null,
+      "content": "tap to open restaurant detail",
+      "date": "Jan 21, 2014 2:45 AM",
+      "prettyDate": "2:45 AM",
+      "fileName": "",
+      "isRead": true
+    }
+    ,{
+      "canvasID": "s-ee42fa65-35a0-406a-aa4f-692c42798abb",
+      "elementID": "s-btnBack",
+      "canvasURL": "screens/ee42fa65-35a0-406a-aa4f-692c42798abb",
+      "author": "Zenith",
+      "code": 9,
+      "parentCode": null,
+      "content": "click to go back to restaurant list",
+      "date": "Jan 21, 2014 2:45 AM",
+      "prettyDate": "2:45 AM",
+      "fileName": "",
+      "isRead": true
+    }
+    ,{
+      "canvasID": "s-ee42fa65-35a0-406a-aa4f-692c42798abb",
+      "elementID": "s-btnSearch",
+      "canvasURL": "screens/ee42fa65-35a0-406a-aa4f-692c42798abb",
+      "author": "Zenith",
+      "code": 10,
+      "parentCode": null,
+      "content": "click to search new favorite restaurants",
+      "date": "Jan 21, 2014 2:45 AM",
+      "prettyDate": "2:45 AM",
+      "fileName": "",
+      "isRead": true
+    }
+    ,{
+      "canvasID": "s-dfaebb38-c9ba-465e-ac32-994348c2d8c1",
+      "elementID": "s-btnCancel",
+      "canvasURL": "screens/dfaebb38-c9ba-465e-ac32-994348c2d8c1",
+      "author": "Zenith",
+      "code": 11,
+      "parentCode": null,
+      "content": "click to cancel",
+      "date": "Jan 21, 2014 2:46 AM",
+      "prettyDate": "2:46 AM",
+      "fileName": "",
+      "isRead": true
+    }
+    ,{
+      "canvasID": "s-dfaebb38-c9ba-465e-ac32-994348c2d8c1",
+      "elementID": "s-btnSave",
+      "canvasURL": "screens/dfaebb38-c9ba-465e-ac32-994348c2d8c1",
+      "author": "Zenith",
+      "code": 12,
+      "parentCode": null,
+      "content": "click to accept",
+      "date": "Jan 21, 2014 2:46 AM",
+      "prettyDate": "2:46 AM",
+      "fileName": "",
+      "isRead": true
+    }
+    ,{
+      "canvasID": "s-dfaebb38-c9ba-465e-ac32-994348c2d8c1",
+      "elementID": "s-Category_1",
+      "canvasURL": "screens/dfaebb38-c9ba-465e-ac32-994348c2d8c1",
+      "author": "Zenith",
+      "code": 13,
+      "parentCode": null,
+      "content": "click to open distance options",
+      "date": "Jan 21, 2014 2:46 AM",
+      "prettyDate": "2:46 AM",
+      "fileName": "",
+      "isRead": true
+    }
+    ,{
+      "canvasID": "s-dfaebb38-c9ba-465e-ac32-994348c2d8c1",
+      "elementID": "s-Category_2",
+      "canvasURL": "screens/dfaebb38-c9ba-465e-ac32-994348c2d8c1",
+      "author": "Zenith",
+      "code": 14,
+      "parentCode": null,
+      "content": "click to open sort by options",
+      "date": "Jan 21, 2014 2:46 AM",
+      "prettyDate": "2:46 AM",
+      "fileName": "",
+      "isRead": true
+    }
+  ]
+}
