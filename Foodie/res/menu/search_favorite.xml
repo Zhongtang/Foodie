@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/miSubmitSearch"
+        android:onClick="onSubmitSearch"
+        android:icon="@drawable/ic_submit"
+        android:showAsAction="ifRoom">
+    </item>
+
+</menu>
