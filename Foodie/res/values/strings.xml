@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Foodie</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="sfa_tvQuery">Term</string>
+    <string name="sfa_etQuery_hint">Chinese food</string>
+    <string name="sfa_tvLocation">Location</string>
+    <string name="sfa_etLocation_hint">Sunnyvale</string>
+    <string name="sfa_tvPrice">Price</string>
+    <string name="sfa_cbPrice1">$</string>
+    <string name="sfa_cbPrice2">$$</string>
+    <string name="sfa_cbPrice3">$$$</string>
+    <string name="sfa_cbPrice4">$$$$</string>
+    <string name="sfa_tvMostPopular">Most Popular</string>
+    <string name="sfa_swMostPopular_on">Open Now</string>
+    <string name="sfa_swMostPopular_hn">Hot &amp; New</string>
+    <string name="sfa_swMostPopular_od">Offering a Deal</string>
+    <string name="sfa_swMostPopular_d">Delivery</string>
+    <string name="sfa_tvDistance">Distance</string>
+
+    <string-array name="sfa_spDistance">
+        <item>Auto</item>
+        <item>0.3 mile</item>
+        <item>1 mile</item>
+        <item>5 miles</item>
+        <item>20 miles</item>
+    </string-array>
+
+    <string name="sfa_tvSortBy">Sort by</string>
+
+    <string-array name="sfa_spSortBy">
+        <item>Best Match</item>
+        <item>Distance</item>
+        <item>Rating</item>
+        <item>Most Reviews</item>
+    </string-array>
+
+    <string name="sfa_tvGeneralFeatures">General Features</string>
+    <string name="sfa_swGeneralFeatures_to">Take-out</string>
+    <string name="sfa_swGeneralFeatures_gfk">Good for Kids</string>
+    <string name="sfa_swGeneralFeatures_gfg">Good for Groups</string>
+    <string name="title_activity_favorite_list">FavoriteListActivity</string>
+    <string name="title_activity_restaurant_list">RestaurantListActivity</string>
+    <string name="title_activity_restaurant_detail">RestaurantDetailActivity</string>
+
+</resources>
