@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -12,7 +13,9 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.yahoo.foodie.app.YelpClient;
 import com.yahoo.foodie.models.SearchFilter;
 import com.yahoo.foodie.persistence.FoodiePreference;
 import com.yahoo.group12.foodie.R;
@@ -39,13 +42,41 @@ public class SearchFavoriteActivity extends Activity {
 		} else {
 			Log.d("DEBUG", "filter is null");
 		}
+		
+	    YelpClient yelp = new YelpClient(); 
+        new YelpSearch(yelp, "pizza", 30.361471, -87.164326).execute();
+	}
+	
+	private class YelpSearch extends AsyncTask<Void, Void, String> {
+	    private String term; 
+	    double la, lg;
+	    YelpClient yelp;
+	    
+	    public YelpSearch(YelpClient yelp, String term, double la, double lg) {
+	        this.yelp = yelp;
+	        this.term = term;
+	        this.la = la;
+	        this.lg = lg;
+	    }
+
+        @Override
+        protected String doInBackground(Void... params) {
+            return this.yelp.search(this.term, this.la, this.lg);
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            Log.d("DEBUG", "search response from yelp client");
+            Log.d("DEBUG", result);
+        }
+	    
 	}
 
 	private void setupViews() {
 		etSearchTerm = (EditText)findViewById(R.id.etQuery);
 		etLocation = (EditText) findViewById(R.id.etLocation);
 		spDistance = (Spinner) findViewById(R.id.spDistance);
-		spSortBy = (Spinner) findViewById(R.id.spSortBy);	
+		spSortBy = (Spinner) findViewById(R.id.spSortBy);
 		
 	}
 

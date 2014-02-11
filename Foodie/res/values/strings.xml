@@ -44,5 +44,6 @@
     <string name="title_activity_favorite_list">FavoriteListActivity</string>
     <string name="title_activity_restaurant_list">RestaurantListActivity</string>
     <string name="title_activity_restaurant_detail">RestaurantDetailActivity</string>
+    <string name="login_lable">Login</string>
 
 </resources>
