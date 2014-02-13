@@ -12,6 +12,7 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,7 +29,7 @@ import com.yahoo.foodie.models.SearchFilter;
 import com.yahoo.foodie.persistence.FoodiePreference;
 import com.yahoo.group12.foodie.R;
 
-public class SearchFavoriteActivity extends Activity {
+public class SearchFavoriteActivity extends FragmentActivity {
 
 	private EditText etSearchTerm;
 	private EditText etLocation;
