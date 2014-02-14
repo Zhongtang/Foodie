@@ -1,6 +1,8 @@
 package com.yahoo.foodie.activity;
 
 import android.app.ActionBar;
+import android.app.SearchableInfo;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -46,6 +48,8 @@ public class SearchFavoriteActivity extends FragmentActivity {
 	public void onSubmitSearch(MenuItem mi) {
 		SearchFavoriteFragment prefs = (SearchFavoriteFragment) getSupportFragmentManager().findFragmentById(R.id.fgmtSearchOptions);
 		prefs.onSavePreference();
+		Intent i = new Intent(SearchFavoriteActivity.this, RestaurantListActivity.class);
+		startActivity(i);
 	}
 
 }
