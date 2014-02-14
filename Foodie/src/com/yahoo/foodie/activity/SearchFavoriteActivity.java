@@ -1,11 +1,16 @@
 package com.yahoo.foodie.activity;
 
+import java.util.ArrayList;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
@@ -16,7 +21,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.loopj.android.http.JsonHttpResponseHandler;
 import com.yahoo.foodie.app.YelpClient;
+import com.yahoo.foodie.app.YelpClientApp;
+import com.yahoo.foodie.models.Business;
 import com.yahoo.foodie.models.SearchFilter;
 import com.yahoo.foodie.persistence.FoodiePreference;
 import com.yahoo.group12.foodie.R;
@@ -44,35 +52,28 @@ public class SearchFavoriteActivity extends FragmentActivity {
 			Log.d("DEBUG", "filter is null");
 		}
 		
-	    YelpClient yelp = new YelpClient(); 
-        new YelpSearch(yelp, "pizza", 30.361471, -87.164326).execute();
+		YelpClient client = YelpClientApp.getRestClient();
+        client.search("food", "san francisco", new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int code, JSONObject body) {
+                Log.d("DEBUG", "onSuccess");
+                try {
+                    JSONArray businessesJson = body.getJSONArray("businesses");
+                    ArrayList<Business> businesses = Business.fromJson(businessesJson);
+                    Log.d("DEBUG", businesses.toString());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            
+            @Override
+            public void onFailure(Throwable arg0) {
+                Toast.makeText(SearchFavoriteActivity.this, "FAIL", Toast.LENGTH_LONG).show();
+            }
+        });
+	    
 	}
 	
-	private class YelpSearch extends AsyncTask<Void, Void, String> {
-	    private String term; 
-	    double la, lg;
-	    YelpClient yelp;
-	    
-	    public YelpSearch(YelpClient yelp, String term, double la, double lg) {
-	        this.yelp = yelp;
-	        this.term = term;
-	        this.la = la;
-	        this.lg = lg;
-	    }
-
-        @Override
-        protected String doInBackground(Void... params) {
-            return this.yelp.search(this.term, this.la, this.lg);
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            Log.d("DEBUG", "search response from yelp client");
-            Log.d("DEBUG", result);
-        }
-	    
-	}
-
 	private void setupViews() {
 		etSearchTerm = (EditText)findViewById(R.id.etQuery);
 		etLocation = (EditText) findViewById(R.id.etLocation);
