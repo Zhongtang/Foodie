@@ -8,24 +8,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".RestaurantListActivity" >
 
-    <FrameLayout
-        android:id="@+id/frame_restaurant_list_container"
+    <ListView
+        android:id="@+id/lvRestaurants"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentTop="true" >
-    </FrameLayout>
-
-    <!--
-         fragment
-        android:id="@+id/fgmtRestaurantList"
-        android:name="com.yahoo.foodie.fragments.RestaurantListFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        tools:layout="@layout/fragment_restaurant_list"
-    -->
+    </ListView>
 
 </RelativeLayout>
