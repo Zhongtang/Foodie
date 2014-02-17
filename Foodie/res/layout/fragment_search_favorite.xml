@@ -117,7 +117,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <Spinner
-        android:id="@+id/spDistance"
+        android:id="@+id/spDistanceRange"
         android:layout_width="150dp"
         android:layout_height="35dp"
         android:layout_alignParentRight="true"
@@ -130,7 +130,7 @@
         android:layout_width="150dp"
         android:layout_height="35dp"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/spDistance"
+        android:layout_below="@+id/spDistanceRange"
         android:entries="@array/sfa_spSortBy"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -147,7 +147,7 @@
         android:id="@+id/tvDistance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/spDistance"
+        android:layout_alignBottom="@+id/spDistanceRange"
         android:layout_alignParentLeft="true"
         android:text="@string/sfa_tvDistance"
         android:textAppearance="?android:attr/textAppearanceSmall" />

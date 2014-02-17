@@ -1,6 +1,5 @@
 package com.yahoo.foodie.models;
 
-
 public class SearchFilter {
 	private final String queryTerm;
 	private final String location;
@@ -9,21 +8,19 @@ public class SearchFilter {
 	private final boolean hotAndNew;
 	private final boolean offeringADeal;
 	private final boolean delivery;
-	private final Float distance; // 0 meaning Auto
+	private final Float distanceRange; // 0 meaning Auto
 	private final String sortBy;
 	private final boolean takeOut;
 	private final boolean goodForKids;
 	private final boolean goodForGroups;
-	
-	
+
 	/**
-	 * utilize builder patter to create SearchFilter class as the class takes a lot parameters.
+	 * utilize builder patter to create SearchFilter class as the class takes a
+	 * lot parameters.
 	 * 
-	 * it can chain all setters up before calling build()
-	 * usage: SearchFilter filter = new SearchFilter.Builder(String queryTerm)
-	 * 									.setOpenNow(true)
-	 *                                  .setSortBy("BestMatch")
-	 *                                  .build();
+	 * it can chain all setters up before calling build() usage: SearchFilter
+	 * filter = new SearchFilter.Builder(String queryTerm) .setOpenNow(true)
+	 * .setSortBy("BestMatch") .build();
 	 */
 	private SearchFilter(Builder builder) {
 		queryTerm = builder.queryTerm;
@@ -33,7 +30,7 @@ public class SearchFilter {
 		hotAndNew = builder.hotAndNew;
 		offeringADeal = builder.offeringADeal;
 		delivery = builder.delivery;
-		distance = builder.distance;
+		distanceRange = builder.distanceRange;
 		sortBy = builder.sortBy;
 		takeOut = builder.takeOut;
 		goodForKids = builder.goodForKids;
@@ -49,7 +46,7 @@ public class SearchFilter {
 		private boolean hotAndNew = false;
 		private boolean offeringADeal = false;
 		private boolean delivery = false;
-		private Float distance = 0.0f; // 0 meaning Auto
+		private Float distanceRange = 0.0f; // 0 meaning Auto
 		private String sortBy = "BestMatch";
 		private boolean takeOut = false;
 		private boolean goodForKids = false;
@@ -84,8 +81,8 @@ public class SearchFilter {
 			return this;
 		}
 
-		public Builder setDistance(float distance) {
-			this.distance = distance;
+		public Builder setDistanceRange(float distanceRange) {
+			this.distanceRange = distanceRange;
 			return this;
 		}
 
@@ -150,8 +147,8 @@ public class SearchFilter {
 		return delivery;
 	}
 
-	public Float getDistance() {
-		return distance;
+	public Float getDistanceRange() {
+		return distanceRange;
 	}
 
 	public String getSortBy() {

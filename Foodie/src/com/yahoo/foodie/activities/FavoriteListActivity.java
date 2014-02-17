@@ -1,12 +1,10 @@
 package com.yahoo.foodie.activities;
 
-import com.yahoo.group12.foodie.R;
-import com.yahoo.group12.foodie.R.layout;
-import com.yahoo.group12.foodie.R.menu;
-
-import android.os.Bundle;
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.Menu;
+
+import com.yahoo.group12.foodie.R;
 
 public class FavoriteListActivity extends Activity {
 

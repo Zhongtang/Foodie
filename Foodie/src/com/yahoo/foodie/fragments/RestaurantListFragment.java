@@ -15,10 +15,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
-import com.yahoo.foodie.activities.RestaurantListActivity;
 import com.yahoo.foodie.clients.RestaurantsAdapter;
 import com.yahoo.foodie.clients.YelpClient;
 import com.yahoo.foodie.clients.YelpClientApp;
@@ -47,8 +45,9 @@ public class RestaurantListFragment extends Fragment {
 	private void setupViews(View v) {
 
 		ArrayList<Restaurant> rests = new ArrayList<Restaurant>();
-		ListView lvRests = (ListView)v.findViewById(R.id.lvRestaurants);
-		adapter = new RestaurantsAdapter(getActivity().getApplicationContext(), rests);
+		ListView lvRests = (ListView) v.findViewById(R.id.lvRestaurants);
+		adapter = new RestaurantsAdapter(getActivity().getApplicationContext(),
+				rests);
 		lvRests.setAdapter(adapter);
 
 		YelpClient client = YelpClientApp.getRestClient();
@@ -68,7 +67,7 @@ public class RestaurantListFragment extends Fragment {
 
 			@Override
 			public void onFailure(Throwable arg0) {
-				Log.d("DEBUG", "Failure inside RestaurantListFragment");
+				Log.d("DEBUG RestaurantListFragment", "Failure");
 			}
 		});
 	}
