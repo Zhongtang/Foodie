@@ -17,8 +17,7 @@ public class RestaurantDetailActivity extends FragmentActivity {
 		setContentView(R.layout.activity_restaurant_detail);
 		this.restaurant = (Restaurant) getIntent().getSerializableExtra(
 				"restaurant");
-		// View pf = findViewById(R.id.frgmtRestaurantDetail);
-		// pf.setTag(this.restaurant);
+
 		RestaurantDetailFragment restaurantDetailFragment = (RestaurantDetailFragment) getSupportFragmentManager()
 				.findFragmentById(R.id.frgmtRestaurantDetail);
 		restaurantDetailFragment.setRestaurant(this.restaurant);

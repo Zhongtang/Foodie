@@ -19,26 +19,10 @@ public class SearchFavoriteActivity extends FragmentActivity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// initActionBar();
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.search_favorite, menu);
 		return true;
 	}
-
-	// private void initActionBar() {
-	// // Change the ActionBar background color to white
-	// ActionBar bar = getActionBar();
-	// // bar.setBackgroundDrawable(new ColorDrawable(Color.WHITE));
-	// // Change the ActionBar font color to black
-	// int actionBarTitleId = Resources.getSystem().getIdentifier(
-	// "action_bar_title", "id", "android");
-	// if (actionBarTitleId > 0) {
-	// TextView title = (TextView) findViewById(actionBarTitleId);
-	// if (title != null) {
-	// title.setTextColor(Color.BLACK);
-	// }
-	// }
-	// }
 
 	public void onSubmitSearch(MenuItem mi) {
 		SearchFavoriteFragment prefs = (SearchFavoriteFragment) getSupportFragmentManager()

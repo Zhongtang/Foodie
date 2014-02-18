@@ -9,7 +9,6 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +24,13 @@ import com.yahoo.group12.foodie.R;
 
 public class RestaurantListFragment extends Fragment {
 	private RestaurantsAdapter adapter;
-	FragmentActivity listener;
+	
+	private OnItemSelectedListener listener;
+
+    // Define the events that the fragment will use to communicate
+    public interface OnItemSelectedListener {
+        public void onProfileImageSelected(Restaurant rest);
+    }
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,7 +44,12 @@ public class RestaurantListFragment extends Fragment {
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
-		this.listener = (FragmentActivity) activity;
+		if (activity instanceof OnItemSelectedListener) {
+            this.listener = (OnItemSelectedListener) activity;
+        } else {
+            throw new ClassCastException(activity.toString()
+                    + " must implement TweetsListFragment.OnItemSelectedListener");
+        }
 	}
 
 	private void setupViews(View v) {
@@ -49,6 +59,9 @@ public class RestaurantListFragment extends Fragment {
 		adapter = new RestaurantsAdapter(getActivity().getApplicationContext(),
 				rests);
 		lvRests.setAdapter(adapter);
+		
+	      // delegate this to adapter
+        adapter.addClickListener(listener); 
 
 		YelpClient client = YelpClientApp.getRestClient();
 		client.search("food", "Sunnyvale CA", new JsonHttpResponseHandler() {

@@ -3,7 +3,6 @@ package com.yahoo.foodie.clients;
 import java.util.List;
 
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,13 +14,15 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.yahoo.foodie.activities.RestaurantDetailActivity;
+import com.yahoo.foodie.fragments.RestaurantListFragment.OnItemSelectedListener;
 import com.yahoo.foodie.models.Restaurant;
 import com.yahoo.group12.foodie.R;
 
 public class RestaurantsAdapter extends ArrayAdapter<Restaurant> {
 
-	public RestaurantsAdapter(Context context, List<Restaurant> rests) {
+	private OnItemSelectedListener onclickListener;
+
+    public RestaurantsAdapter(Context context, List<Restaurant> rests) {
 		super(context, 0, rests);
 	}
 
@@ -60,19 +61,23 @@ public class RestaurantsAdapter extends ArrayAdapter<Restaurant> {
 		tvAddr.setText(rest.getAddr());
 		tvType.setText(rest.getCategories());
 
-		ivProfile.setTag(rest.getRestaurant());
+//		ivProfile.setTag(rest.getRestaurant());
 		ivProfile.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Restaurant restaurant = (Restaurant) v.getTag();
-				Context context = getContext();
-				Intent i = new Intent(context, RestaurantDetailActivity.class);
-				i.putExtra("restaurant", restaurant);
-				context.startActivity(i);
+//				Restaurant restaurant = (Restaurant) v.getTag();	
+                if (onclickListener != null) {
+                    Log.d("DEBUG", "click profile image for restaurant: " + rest.getName());
+                    onclickListener.onProfileImageSelected(rest);
+                }       
 			}
 		});
 
 		// Return the completed view to render on screen
 		return convertView;
 	}
+
+    public void addClickListener(OnItemSelectedListener listener) {
+        this.onclickListener = listener;
+    }
 }

@@ -11,15 +11,15 @@ import android.util.Log;
 
 public class Restaurant implements Serializable {
 	private static final long serialVersionUID = 1L;
+	
 	private String id;
 	private String name;
 	private String phone;
 	private String imageUrl;
 	private int reviewCount;
 	private double rating;
-	private JSONArray categories;
-	private JSONArray addr;
-	private Restaurant restaurant;
+	private String categories;
+	private String addr;
 
 	public String getId() {
 		return this.id;
@@ -36,6 +36,14 @@ public class Restaurant implements Serializable {
 	public String getImageUrl() {
 		return this.imageUrl;
 	}
+	
+	public String getAddr() {
+        return this.addr;
+    }
+	
+	public String getCategories() {
+        return this.categories;
+    }
 
 	public int getReviewCount() {
 		return this.reviewCount;
@@ -45,18 +53,15 @@ public class Restaurant implements Serializable {
 		return this.rating;
 	}
 
-	public Restaurant getRestaurant() {
-		return this.restaurant;
-	}
 
-	public String getCategories() {
+	protected static String getCategories(JSONArray categories) {
 		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < this.categories.length(); i++) {
+		for (int i = 0; i < categories.length(); i++) {
 			try {
-				sb.append(this.categories.getJSONArray(i).optString(0));
-				Log.d("DEBUG Restaurant", this.categories.getJSONArray(i)
+				sb.append(categories.getJSONArray(i).optString(0));
+				Log.d("DEBUG Restaurant", categories.getJSONArray(i)
 						.optString(0));
-				if (i < this.categories.length() - 1)
+				if (i < categories.length() - 1)
 					sb.append(", ");
 			} catch (JSONException e) {
 				e.printStackTrace();
@@ -65,13 +70,13 @@ public class Restaurant implements Serializable {
 		return sb.toString();
 	}
 
-	public String getAddr() {
+	protected static String getAddr(JSONArray addresses) {
 		StringBuilder sb = new StringBuilder();
 		try {
 			// return this.addr.join(",");
-			for (int i = 0; i < this.addr.length(); i++) {
-				sb.append(this.addr.getString(i));
-				if (i < this.addr.length() - 1)
+			for (int i = 0; i < addresses.length(); i++) {
+				sb.append(addresses.getString(i));
+				if (i < addresses.length() - 1)
 					sb.append(", ");
 			}
 		} catch (JSONException e) {
@@ -91,14 +96,13 @@ public class Restaurant implements Serializable {
 			b.imageUrl = jsonObject.getString("image_url");
 			b.reviewCount = jsonObject.getInt("review_count");
 			b.rating = jsonObject.getDouble("rating");
-			b.categories = jsonObject.getJSONArray("categories");
-			b.addr = jsonObject.getJSONObject("location").getJSONArray(
-					"display_address");
+			b.categories = getCategories(jsonObject.getJSONArray("categories"));
+			b.addr = getAddr(jsonObject.getJSONObject("location").getJSONArray(
+					"display_address"));
 		} catch (JSONException e) {
 			e.printStackTrace();
 			return null;
 		}
-		// Return new object
 		return b;
 	}
 
