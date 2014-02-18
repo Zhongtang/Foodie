@@ -14,7 +14,7 @@ import com.yahoo.group12.foodie.R;
 
 public class RestaurantDetailFragment extends Fragment {
 	private TextView tvName;
-	private TextView tvPrice;
+//	private TextView tvPrice;
 	private TextView tvReviews;
 	private TextView tvAddr;
 	private TextView tvType;
@@ -42,7 +42,7 @@ public class RestaurantDetailFragment extends Fragment {
 
 	private void setupViews() {
 		tvName = (TextView) getActivity().findViewById(R.id.tvName);
-		tvPrice = (TextView) getActivity().findViewById(R.id.tvPrice);
+//		tvPrice = (TextView) getActivity().findViewById(R.id.tvPrice); // no such field now
 		tvReviews = (TextView) getActivity().findViewById(R.id.tvReviews);
 		rbRating = (RatingBar) getActivity().findViewById(R.id.rbRating);
 		tvAddr = (TextView) getActivity().findViewById(R.id.tvAddr);
@@ -52,7 +52,7 @@ public class RestaurantDetailFragment extends Fragment {
 
 	private void populateRestaurantDetail() {
 		tvName.setText(rest.getName());
-		tvPrice.setText("$$"); // fake now
+//		tvPrice.setText("$$"); // no such field now
 		tvReviews.setText(Integer.toString(rest.getReviewCount()) + " Reviews");
 		rbRating.setRating((float) rest.getRating());
 		tvAddr.setText(rest.getAddr());
