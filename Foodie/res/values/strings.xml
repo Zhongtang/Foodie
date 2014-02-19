@@ -19,6 +19,8 @@
     <string name="sfa_swMostPopular_od">Offering a Deal</string>
     <string name="sfa_swMostPopular_d">Delivery</string>
     <string name="sfa_tvDistance">Distance</string>
+    <string name="submit_search">Done</string>
+    <string name="search">Search</string>
 
     <string-array name="sfa_spDistance">
         <item>Auto</item>

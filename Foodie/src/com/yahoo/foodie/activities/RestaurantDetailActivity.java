@@ -1,20 +1,20 @@
 package com.yahoo.foodie.activities;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 
 import com.yahoo.foodie.fragments.RestaurantDetailFragment;
 import com.yahoo.foodie.models.Restaurant;
 import com.yahoo.group12.foodie.R;
 
-public class RestaurantDetailActivity extends FragmentActivity {
+public class RestaurantDetailActivity extends RootActivity {
 	private Restaurant restaurant;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_restaurant_detail);
+
 		this.restaurant = (Restaurant) getIntent().getSerializableExtra(
 				"restaurant");
 
@@ -29,4 +29,5 @@ public class RestaurantDetailActivity extends FragmentActivity {
 		getMenuInflater().inflate(R.menu.restaurant_detail, menu);
 		return true;
 	}
+
 }
