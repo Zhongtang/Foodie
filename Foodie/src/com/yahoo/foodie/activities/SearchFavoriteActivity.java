@@ -2,14 +2,13 @@ package com.yahoo.foodie.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.yahoo.foodie.fragments.SearchFavoriteFragment;
 import com.yahoo.group12.foodie.R;
 
-public class SearchFavoriteActivity extends FragmentActivity {
+public class SearchFavoriteActivity extends RootActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

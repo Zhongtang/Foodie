@@ -24,14 +24,14 @@
         android:max="5"
         android:numStars="5"
         android:rating="0.0"
-        android:stepSize="0.0" />
+        android:stepSize="0.5" />
 
     <TextView
         android:id="@+id/tvReviews"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/rbRating"
         android:layout_below="@+id/tvName"
+        android:layout_toRightOf="@+id/rbRating"
         android:textColor="#000000"
         android:textSize="12sp" />
 
@@ -42,7 +42,7 @@
         android:layout_below="@+id/rbRating"
         android:textColor="#000000"
         android:textSize="12sp" />
-    
+
     <TextView
         android:id="@+id/tvAddr"
         android:layout_width="wrap_content"
