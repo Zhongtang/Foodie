@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 
+import com.yahoo.foodie.R;
 import com.yahoo.foodie.fragments.RestaurantListFragment;
 import com.yahoo.foodie.models.Restaurant;
-import com.yahoo.group12.foodie.R;
 
 public class RestaurantListActivity extends RootActivity implements
 		RestaurantListFragment.OnItemSelectedListener {

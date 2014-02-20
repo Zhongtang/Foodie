@@ -14,9 +14,9 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.yahoo.foodie.R;
 import com.yahoo.foodie.fragments.RestaurantListFragment.OnItemSelectedListener;
 import com.yahoo.foodie.models.Restaurant;
-import com.yahoo.group12.foodie.R;
 
 public class RestaurantsAdapter extends ArrayAdapter<Restaurant> {
 

@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.yahoo.foodie.R;
 import com.yahoo.foodie.models.Restaurant;
-import com.yahoo.group12.foodie.R;
 
 public class RestaurantDetailFragment extends Fragment {
 	private TextView tvName;
