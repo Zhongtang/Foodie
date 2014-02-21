@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.content.IntentSender;
 import android.location.Address;
 import android.location.Geocoder;
-import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.util.Log;
@@ -23,8 +22,11 @@ import com.google.android.gms.location.LocationClient;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.yahoo.foodie.R;
 import com.yahoo.foodie.fragments.RestaurantDetailFragment;
 import com.yahoo.foodie.models.Restaurant;
@@ -149,16 +151,8 @@ public class RestaurantDetailActivity extends RootActivity
     @Override
     public void onConnected(Bundle dataBundle) {
         // Display the connection status
-        Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show();
-//        Location location = mLocationClient.getLastLocation();
-//        if (location != null) {
-//            LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-//            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 17);
-//            map.animateCamera(cameraUpdate);
-//        } else {
-//            Toast.makeText(this, "Current location was null!", Toast.LENGTH_SHORT).show();
-//        }
-        
+        Log.d("DEBUG", "Connected");
+      
         Geocoder coder = new Geocoder(this);
         List<Address> address;
         
@@ -172,7 +166,17 @@ public class RestaurantDetailActivity extends RootActivity
             Address location = address.get(0);
             LatLng latLng = new LatLng(location.getLatitude(),location.getLongitude());
             CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 17);
-            map.animateCamera(cameraUpdate);
+            //map.animateCamera(cameraUpdate);
+            map.addMarker(new MarkerOptions().position(latLng));
+            map.setOnMarkerClickListener(new OnMarkerClickListener() {                
+                @Override
+                public boolean onMarkerClick(Marker marker) {
+                    Toast.makeText(getApplicationContext(), "pop up friend list fragment and choose friends", Toast.LENGTH_LONG).show();
+                    return true;
+                }
+            });
+            map.moveCamera(cameraUpdate);
+
         } catch (IOException e) {
             Toast.makeText(this, "location was null!", Toast.LENGTH_SHORT).show();
         }
