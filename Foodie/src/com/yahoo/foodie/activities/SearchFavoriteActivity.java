@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.yahoo.foodie.R;
 import com.yahoo.foodie.fragments.SearchFavoriteFragment;
-import com.yahoo.group12.foodie.R;
 
 public class SearchFavoriteActivity extends RootActivity {
 

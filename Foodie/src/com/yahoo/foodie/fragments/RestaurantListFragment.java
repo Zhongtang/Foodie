@@ -16,11 +16,11 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
+import com.yahoo.foodie.R;
 import com.yahoo.foodie.clients.RestaurantsAdapter;
 import com.yahoo.foodie.clients.YelpClient;
 import com.yahoo.foodie.clients.YelpClientApp;
 import com.yahoo.foodie.models.Restaurant;
-import com.yahoo.group12.foodie.R;
 
 public class RestaurantListFragment extends Fragment {
 	private RestaurantsAdapter adapter;

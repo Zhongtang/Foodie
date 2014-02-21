@@ -11,9 +11,9 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.yahoo.foodie.R;
 import com.yahoo.foodie.models.SearchFilter;
 import com.yahoo.foodie.persistence.FoodiePreference;
-import com.yahoo.group12.foodie.R;
 
 public class SearchFavoriteFragment extends Fragment {
 	FragmentActivity listener;

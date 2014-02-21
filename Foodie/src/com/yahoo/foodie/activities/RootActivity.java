@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.MenuItem;
 
-import com.yahoo.group12.foodie.R;
+import com.yahoo.foodie.R;
 
 public class RootActivity extends FragmentActivity {
 	int onStartCount = 0;

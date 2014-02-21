@@ -13,10 +13,19 @@
         android:name="com.yahoo.foodie.fragments.RestaurantDetailFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentTop="true"     
         tools:layout="@layout/fragment_restaurant_detail" />
+    
+      <fragment
+       android:id="@+id/map"
+       class="com.google.android.gms.maps.SupportMapFragment"
+       android:layout_below="@+id/frgmtRestaurantDetail"
+       android:layout_alignParentLeft="true"
+       android:layout_alignParentRight="true"
+       android:layout_alignParentBottom="true"      
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"/>
 
 </RelativeLayout>
