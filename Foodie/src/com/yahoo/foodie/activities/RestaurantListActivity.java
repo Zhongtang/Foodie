@@ -36,7 +36,7 @@ public class RestaurantListActivity extends RootActivity implements
 	}
 
 	@Override
-	public void onProfileImageSelected(Restaurant rest) {
+	public void onRestaurantSelected(Restaurant rest) {
 		Intent i = new Intent(getApplicationContext(),
 				RestaurantDetailActivity.class);
 		i.putExtra("restaurant", rest);

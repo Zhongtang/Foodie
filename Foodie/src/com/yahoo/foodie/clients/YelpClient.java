@@ -4,6 +4,7 @@ import org.scribe.builder.api.Api;
 import org.scribe.model.Token;
 
 import android.content.Context;
+import android.location.Location;
 
 import com.codepath.oauth.OAuthBaseClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -34,6 +35,17 @@ public class YelpClient extends OAuthBaseClient {
 		client.get(apiUrl, params, handler);
 	}
 
+	public void search(String term, Location location,
+            AsyncHttpResponseHandler handler) {
+        // http://api.yelp.com/v2/search?term=food&ll=37.788022,-122.399797
+        String apiUrl = getApiUrl("search");
+        String llStr = location.getLatitude() + "," + location.getLongitude();
+        RequestParams params = new RequestParams();
+        params.put("term", term);
+        params.put("ll", llStr);
+        client.get(apiUrl, params, handler);
+    }
+	
 	public void getBusinessInfo(String id,
 			AsyncHttpResponseHandler handler) {
 		// http://api.yelp.com/v2/business/yelp-san-francisco

@@ -61,14 +61,12 @@ public class RestaurantsAdapter extends ArrayAdapter<Restaurant> {
 		tvAddr.setText(rest.getAddr());
 		tvType.setText(rest.getCategories());
 
-//		ivProfile.setTag(rest.getRestaurant());
 		ivProfile.setOnClickListener(new OnClickListener() {
 			@Override
-			public void onClick(View v) {
-//				Restaurant restaurant = (Restaurant) v.getTag();	
+			public void onClick(View v) {	
                 if (onclickListener != null) {
                     Log.d("DEBUG", "click profile image for restaurant: " + rest.getName());
-                    onclickListener.onProfileImageSelected(rest);
+                    onclickListener.onRestaurantSelected(rest);
                 }       
 			}
 		});
