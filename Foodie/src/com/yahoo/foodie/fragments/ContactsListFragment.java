@@ -105,7 +105,7 @@ public class ContactsListFragment extends ListFragment implements
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		return inflater.inflate(R.layout.contact_list_fragment, container,
+		return inflater.inflate(R.layout.fragment_contact_list, container,
 				false);
 	}
 
@@ -449,7 +449,7 @@ public class ContactsListFragment extends ListFragment implements
 		public View newView(Context context, Cursor cursor, ViewGroup viewGroup) {
 
 			final View itemLayout = mInflater.inflate(
-					R.layout.contact_list_item, viewGroup, false);
+					R.layout.item_contact_list, viewGroup, false);
 			final ViewHolder holder = new ViewHolder();
 			holder.text1 = (TextView) itemLayout
 					.findViewById(android.R.id.text1);
