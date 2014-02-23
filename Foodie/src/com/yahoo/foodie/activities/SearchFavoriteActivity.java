@@ -6,11 +6,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.parse.Parse;
-import com.parse.ParseAnalytics;
 import com.parse.ParseObject;
-import com.parse.ParseInstallation;
 import com.parse.PushService;
-
 import com.yahoo.foodie.R;
 import com.yahoo.foodie.fragments.SearchFavoriteFragment;
 
@@ -20,7 +17,12 @@ public class SearchFavoriteActivity extends RootActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_search_favorite);
-		Parse.initialize(this, "8XfMtfEQT44xBf8qS8iucwai3JTfZOmg2EF4Yr4w", "uANkznUoVmJVgzn484HYWHTOrC97bxIR8aPQ1CeR");
+		
+		// Stone: Parse.initialize(this, "...", "...");
+		// Zenith: Parse.initialize(this, "Iu7WYT2uS0CGn6HP1X6Rj2QscU1KyirbAyGyGhPd", "vNum3crFgtTs2dLSJPwydKXpzYqftbpZI44APfKa");
+		// Zhongtang: Parse.initialize(this, "8XfMtfEQT44xBf8qS8iucwai3JTfZOmg2EF4Yr4w", "uANkznUoVmJVgzn484HYWHTOrC97bxIR8aPQ1CeR");
+		Parse.initialize(this, "Iu7WYT2uS0CGn6HP1X6Rj2QscU1KyirbAyGyGhPd", "vNum3crFgtTs2dLSJPwydKXpzYqftbpZI44APfKa");
+
 		// For test:
 		ParseObject testObject = new ParseObject("TestObject");
 		testObject.put("foo", "bar");

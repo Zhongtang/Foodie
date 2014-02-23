@@ -31,7 +31,7 @@ public class RestaurantsAdapter extends ArrayAdapter<Restaurant> {
 		// Check if an existing view is being reused, otherwise inflate the view
 		if (convertView == null) {
 			LayoutInflater inflater = LayoutInflater.from(getContext());
-			convertView = inflater.inflate(R.layout.restaurant_item, null);
+			convertView = inflater.inflate(R.layout.item_restaurant, null);
 		}
 		// Get the data item for this position
 		final Restaurant rest = getItem(position);
