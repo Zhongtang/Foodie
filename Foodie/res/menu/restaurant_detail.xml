@@ -6,5 +6,11 @@
         android:onClick="onSearch"
         android:showAsAction="always"
         android:title="@string/search"/>
-
+    <item
+        android:id="@+id/miInvite"
+        android:icon="@drawable/ic_friends"
+        android:onClick="onInvite"
+        android:showAsAction="always"
+        android:title="@string/invite"/>
+    
 </menu>
