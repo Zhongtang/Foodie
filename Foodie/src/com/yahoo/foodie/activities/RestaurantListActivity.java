@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
-import android.view.Menu;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
@@ -67,7 +66,7 @@ public class RestaurantListActivity extends RootActivity implements
         //ParseObject testObject = new ParseObject("TestObject");
         //testObject.put("foo", "bar");
         //testObject.saveInBackground();
-        PushService.setDefaultPushCallback(this, SearchFavoriteActivity.class);
+        PushService.setDefaultPushCallback(this, RestaurantListActivity.class);
         
         // Grant accounts, setup friendships
         // One-time set-up for test. comment out in the second run

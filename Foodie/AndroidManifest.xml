@@ -48,12 +48,12 @@
             android:value="1" />
 
         <activity
-            android:name="com.yahoo.foodie.activities.SearchFavoriteActivity"
-            android:label="@string/app_name" >
-        </activity>
-        <activity
             android:name="com.yahoo.foodie.activities.FavoriteListActivity"
             android:label="@string/title_activity_favorite_list" >
+        </activity>
+        <activity
+            android:name="com.yahoo.foodie.activities.SearchFavoriteActivity"
+            android:label="@string/app_name" >
         </activity>
         <activity
             android:name="com.yahoo.foodie.activities.RestaurantListActivity"

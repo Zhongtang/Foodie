@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -14,10 +13,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.yahoo.foodie.R;
 import com.yahoo.foodie.activities.RestaurantListActivity;
-import com.yahoo.foodie.activities.SearchFavoriteActivity;
 import com.yahoo.foodie.models.SearchFilter;
 import com.yahoo.foodie.persistence.FoodiePreference;
 
@@ -75,14 +74,16 @@ public class SearchFavoriteFragment extends Fragment {
 	}
 
 	private void onSubmitSearch(MenuItem mi) {
-        onSavePreference();
-        Intent i = new Intent(getActivity(), RestaurantListActivity.class);
-        startActivity(i);
+        onSavePreference();     
     }
 	
 	public void onSavePreference() {
 
 		String queryTerm = etSearchTerm.getText().toString();
+		if (null == queryTerm || queryTerm.isEmpty()) {
+		    Toast.makeText(getActivity(),"please input the query keyword", Toast.LENGTH_SHORT).show();
+		    return;
+		}
 		String location = etLocation.getText().toString();
 		String sortBy = spSortBy.getSelectedItem().toString();
 		String distanceStr = spDistanceRange.getSelectedItem().toString();
@@ -102,6 +103,8 @@ public class SearchFavoriteFragment extends Fragment {
 
 		new FoodiePreference(getActivity().getApplicationContext(), filterPref)
 				.save();
+		Intent i = new Intent(getActivity(), RestaurantListActivity.class);
+        startActivity(i);
 	}
 
 }

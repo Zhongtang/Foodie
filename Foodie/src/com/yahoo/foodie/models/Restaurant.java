@@ -7,8 +7,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.util.Log;
-
 public class Restaurant implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
