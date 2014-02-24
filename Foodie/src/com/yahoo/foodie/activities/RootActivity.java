@@ -53,12 +53,6 @@ public class RootActivity extends FragmentActivity {
 		}
 	}
 
-	public void onSearch(MenuItem mi) {
-		Intent i = new Intent(this, SearchFavoriteActivity.class);
-		startActivity(i);
-	}
-	
-
     /*
      * Handle results returned to the FragmentActivity by Google Play services
      */

@@ -173,6 +173,11 @@ public class RestaurantDetailActivity extends RootActivity implements
 					Toast.LENGTH_LONG).show();
 		}
 	}
+	
+	 public void onSearch(MenuItem mi) {
+	     Intent i = new Intent(this, SearchFavoriteActivity.class);
+	     startActivity(i);
+	 }
 
 	public void onInvite(MenuItem mi) {
 		Intent i = new Intent(this, ContactsListActivity.class);

@@ -18,10 +18,10 @@ public class SearchFavoriteActivity extends RootActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_search_favorite);
 		
-		// Stone: Parse.initialize(this, "...", "...");
+		// Stone: Parse.initialize(this, "1RPMooDcVnHYlBowXpHdCwU1qzTCyDc46XuY80AK", "Bx6tXHCtOnVGZiDiKmHoueiIaTgQSgtdzUlIy8YK");
 		// Zenith: Parse.initialize(this, "Iu7WYT2uS0CGn6HP1X6Rj2QscU1KyirbAyGyGhPd", "vNum3crFgtTs2dLSJPwydKXpzYqftbpZI44APfKa");
 		// Zhongtang: Parse.initialize(this, "8XfMtfEQT44xBf8qS8iucwai3JTfZOmg2EF4Yr4w", "uANkznUoVmJVgzn484HYWHTOrC97bxIR8aPQ1CeR");
-		Parse.initialize(this, "Iu7WYT2uS0CGn6HP1X6Rj2QscU1KyirbAyGyGhPd", "vNum3crFgtTs2dLSJPwydKXpzYqftbpZI44APfKa");
+		Parse.initialize(this, "1RPMooDcVnHYlBowXpHdCwU1qzTCyDc46XuY80AK", "Bx6tXHCtOnVGZiDiKmHoueiIaTgQSgtdzUlIy8YK");;
 
 		// For test:
 		ParseObject testObject = new ParseObject("TestObject");
@@ -37,13 +37,13 @@ public class SearchFavoriteActivity extends RootActivity {
 		return true;
 	}
 
-	public void onSubmitSearch(MenuItem mi) {
-		SearchFavoriteFragment prefs = (SearchFavoriteFragment) getSupportFragmentManager()
-				.findFragmentById(R.id.fgmtSearchOptions);
-		prefs.onSavePreference();
-		Intent i = new Intent(SearchFavoriteActivity.this,
-				RestaurantListActivity.class);
-		startActivity(i);
-	}
+//	public void onSubmitSearch(MenuItem mi) {
+//		SearchFavoriteFragment prefs = (SearchFavoriteFragment) getSupportFragmentManager()
+//				.findFragmentById(R.id.fgmtSearchOptions);
+//		prefs.onSavePreference();
+//		Intent i = new Intent(SearchFavoriteActivity.this,
+//				RestaurantListActivity.class);
+//		startActivity(i);
+//	}
 
 }

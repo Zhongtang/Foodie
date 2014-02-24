@@ -166,4 +166,11 @@ public class SearchFilter {
 	public boolean getGoodForGroups() {
 		return goodForGroups;
 	}
+
+    @Override
+    public String toString() {
+        return queryTerm + ":" + location;
+    }
+	
+	
 }
