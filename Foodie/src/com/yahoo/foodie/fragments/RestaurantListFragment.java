@@ -35,6 +35,8 @@ import com.yahoo.foodie.clients.RestaurantsAdapter;
 import com.yahoo.foodie.clients.YelpClient;
 import com.yahoo.foodie.clients.YelpClientApp;
 import com.yahoo.foodie.models.Restaurant;
+import com.yahoo.foodie.models.SearchFilter;
+import com.yahoo.foodie.persistence.FoodiePreference;
 
 public class RestaurantListFragment extends Fragment 
 implements GooglePlayServicesClient.ConnectionCallbacks,
@@ -44,6 +46,7 @@ GooglePlayServicesClient.OnConnectionFailedListener{
     private Location curLocation;
 
     private OnItemSelectedListener listener;
+    private SearchFilter searchFilter;
 
     // Define the events that the fragment will use to communicate
     public interface OnItemSelectedListener {
@@ -65,6 +68,9 @@ GooglePlayServicesClient.OnConnectionFailedListener{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+        
+        searchFilter = FoodiePreference.get(getActivity().getApplicationContext());
+        
         ArrayList<Restaurant> rests = new ArrayList<Restaurant>();
         adapter = new RestaurantsAdapter(getActivity().getApplicationContext(),
                 rests);       
@@ -168,7 +174,12 @@ GooglePlayServicesClient.OnConnectionFailedListener{
         Log.d("DEBUG", "current location: " + curLocation.getLatitude() + "," + curLocation.getLongitude());
 
         YelpClient client = YelpClientApp.getRestClient();
-        client.search("food", curLocation, new JsonHttpResponseHandler() {
+        String searchTerm = searchFilter.getQueryTerm();
+        if (null == searchTerm || searchTerm.isEmpty()) {
+            Log.d("DEBUG", "preference empty, fail over for dev/debugging now");
+            searchTerm = "food";
+        }
+        client.search(searchTerm, curLocation, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int code, JSONObject body) {
                 try {
