@@ -3,7 +3,6 @@
     <item
         android:id="@+id/miSubmitSearch"
         android:icon="@drawable/ic_submit"
-        android:onClick="onSubmitSearch"
         android:showAsAction="always"
         android:title="@string/submit_search"/>
 

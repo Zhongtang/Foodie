@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
-import android.view.MenuItem;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -52,12 +51,6 @@ public class RootActivity extends FragmentActivity {
 			onStartCount++;
 		}
 	}
-
-	public void onSearch(MenuItem mi) {
-		Intent i = new Intent(this, SearchFavoriteActivity.class);
-		startActivity(i);
-	}
-	
 
     /*
      * Handle results returned to the FragmentActivity by Google Play services

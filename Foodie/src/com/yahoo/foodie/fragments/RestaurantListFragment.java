@@ -14,6 +14,9 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -27,19 +30,23 @@ import com.google.android.gms.location.LocationClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.yahoo.foodie.R;
 import com.yahoo.foodie.activities.RestaurantDetailActivity;
+import com.yahoo.foodie.activities.SearchFavoriteActivity;
 import com.yahoo.foodie.clients.RestaurantsAdapter;
 import com.yahoo.foodie.clients.YelpClient;
 import com.yahoo.foodie.clients.YelpClientApp;
 import com.yahoo.foodie.models.Restaurant;
+import com.yahoo.foodie.models.SearchFilter;
+import com.yahoo.foodie.persistence.FoodiePreference;
 
 public class RestaurantListFragment extends Fragment 
-                                    implements GooglePlayServicesClient.ConnectionCallbacks,
-                                               GooglePlayServicesClient.OnConnectionFailedListener{
-	private RestaurantsAdapter adapter;
+implements GooglePlayServicesClient.ConnectionCallbacks,
+GooglePlayServicesClient.OnConnectionFailedListener{
+    private RestaurantsAdapter adapter;
     private LocationClient mLocationClient;
     private Location curLocation;
-	
-	private OnItemSelectedListener listener;
+
+    private OnItemSelectedListener listener;
+    private SearchFilter searchFilter;
 
     // Define the events that the fragment will use to communicate
     public interface OnItemSelectedListener {
@@ -56,22 +63,26 @@ public class RestaurantListFragment extends Fragment
                     + " must implement RestaurantListFragment.OnItemSelectedListener");
         }
     }
-     
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+        
+        searchFilter = FoodiePreference.get(getActivity().getApplicationContext());
+        
         ArrayList<Restaurant> rests = new ArrayList<Restaurant>();
         adapter = new RestaurantsAdapter(getActivity().getApplicationContext(),
                 rests);       
         // delegate this to adapter
         adapter.addClickListener(listener); 
     }
-    
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		View v = inflater.inflate(R.layout.fragment_restaurant_list, container,
-				false);
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_restaurant_list, container,
+                false);
         ListView lvRests = (ListView)v.findViewById(R.id.lvRestaurants);
         lvRests.setAdapter(adapter);
         lvRests.setOnItemClickListener(new OnItemClickListener() {
@@ -86,9 +97,32 @@ public class RestaurantListFragment extends Fragment
                 startActivity(i); 
             }
         });
-     
-		return v;
-	}
+
+        return v;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        inflater.inflate(R.menu.restaurant_list, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // handle item selection
+        switch (item.getItemId()) {
+        case R.id.miSearch:
+            onSearch(item);
+            return true;
+        default:
+            return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void onSearch(MenuItem mi) {
+        Intent i = new Intent(getActivity(), SearchFavoriteActivity.class);
+        startActivity(i);
+    }
 
     /*
      * Called when the Activity becomes visible.
@@ -132,10 +166,20 @@ public class RestaurantListFragment extends Fragment
             curLocation.setLatitude(37.3757);
             curLocation.setLongitude(-122.0295);
         }
+
+        curLocation = new Location(LocationManager.GPS_PROVIDER);
+        curLocation.setLatitude(37.3757);
+        curLocation.setLongitude(-122.0295);
+
         Log.d("DEBUG", "current location: " + curLocation.getLatitude() + "," + curLocation.getLongitude());
-        
+
         YelpClient client = YelpClientApp.getRestClient();
-        client.search("food", curLocation, new JsonHttpResponseHandler() {
+        String searchTerm = searchFilter.getQueryTerm();
+        if (null == searchTerm || searchTerm.isEmpty()) {
+            Log.d("DEBUG", "preference empty, fail over for dev/debugging now");
+            searchTerm = "food";
+        }
+        client.search(searchTerm, curLocation, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int code, JSONObject body) {
                 try {
@@ -154,7 +198,7 @@ public class RestaurantListFragment extends Fragment
                 Log.d("DEBUG", "failed to search Restaurant, " + arg0.getMessage());
             }
         });
-        
+
     }
 
     @Override

@@ -7,8 +7,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.util.Log;
-
 public class Restaurant implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
@@ -59,8 +57,8 @@ public class Restaurant implements Serializable {
 		for (int i = 0; i < categories.length(); i++) {
 			try {
 				sb.append(categories.getJSONArray(i).optString(0));
-				Log.d("DEBUG Restaurant", categories.getJSONArray(i)
-						.optString(0));
+//				Log.d("DEBUG Restaurant", categories.getJSONArray(i)
+//						.optString(0));
 				if (i < categories.length() - 1)
 					sb.append(", ");
 			} catch (JSONException e) {
