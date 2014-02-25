@@ -67,7 +67,7 @@ public class ParseClient {
                     getMyFriends(ParseUser.getCurrentUser().getUsername());
                     ArrayList<String> targets = new ArrayList<String>();
                     targets.add(ParseUser.getCurrentUser().getUsername());
-                    pushToUsers(targets, "LET'S HAVE LUNCH");
+                    //pushToUsers(targets, "LET'S HAVE LUNCH");
                 } else {
                     Log.d("DEBUG", "Failed to Log in! " + user.getUsername());
                 }
@@ -136,7 +136,7 @@ public class ParseClient {
     
     
     // Given an array of usernames, send push notification to all these users
-    public void pushToUsers(ArrayList<String> targets, String message) {
+    public static void pushToUsers(ArrayList<String> targets, String message) {
         List<ParseQuery<ParseInstallation>> queries = new ArrayList<ParseQuery<ParseInstallation>>();
         for(int i = 0; i < targets.size(); i++) {
             ParseQuery<ParseInstallation> query = ParseInstallation.getQuery();;

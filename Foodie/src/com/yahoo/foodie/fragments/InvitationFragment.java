@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -20,7 +24,9 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
+import com.google.gson.JsonArray;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -84,18 +90,12 @@ public class InvitationFragment extends DialogFragment implements OnClickListene
 		
 		datePicker = (DatePicker) v.findViewById(R.id.datePicker);
 		timePicker = (TimePicker) v.findViewById(R.id.timePicker);
-
 		cal = Calendar.getInstance();
 
 		datePicker.init(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH),
 				cal.get(Calendar.DAY_OF_MONTH), null);
-
 		timePicker.setCurrentHour(cal.get(Calendar.HOUR_OF_DAY));
 		timePicker.setCurrentMinute(cal.get(Calendar.MINUTE));
-		
-		cal.set(datePicker.getYear(), datePicker.getMonth(),
-				datePicker.getDayOfMonth(), timePicker.getCurrentHour(),
-				timePicker.getCurrentMinute(), 00);
 	}
 	
 	private void loadMyFriends() {
@@ -138,11 +138,34 @@ public class InvitationFragment extends DialogFragment implements OnClickListene
 		// Get the text message
 		String msg = etMsg.getText().toString();
 		Log.d("DEBUG", "MSG: " + msg);
-		// TODO: include date & time: pass cal
-		// TODO: compose json invitation
-		// TODO: send invitation
-		// TODO: close the dialog
 		
+		// Get the selected date&time
+		cal.set(datePicker.getYear(), datePicker.getMonth(),
+				datePicker.getDayOfMonth(), timePicker.getCurrentHour(),
+				timePicker.getCurrentMinute(), 00);
+		String invitationDate = cal.getTime().toString();
+		Log.d("DEBUG", "Date: " + invitationDate);
+		
+		// compose json invitation
+		// TODO: include location
+		JSONObject invitation = new JSONObject();
+		try {
+			invitation.put("date", invitationDate);
+			invitation.put("msg", msg);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// send invitation
+		Log.d("DEBUG", invitation.toString());
+		if (selectedUsers.size() != 0) {
+			ParseClient.pushToUsers(selectedUsers, invitation.toString());
+		} else {
+			Toast.makeText(getActivity(), "Please select at least one friend", Toast.LENGTH_SHORT).show();
+		}
+		
+		// TODO: close the dialog
 		
 	}
 	
