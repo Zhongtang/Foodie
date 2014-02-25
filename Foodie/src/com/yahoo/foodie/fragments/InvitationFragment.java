@@ -24,6 +24,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.google.gson.JsonArray;
 import com.parse.FindCallback;
@@ -95,10 +96,6 @@ public class InvitationFragment extends DialogFragment implements OnClickListene
 				cal.get(Calendar.DAY_OF_MONTH), null);
 		timePicker.setCurrentHour(cal.get(Calendar.HOUR_OF_DAY));
 		timePicker.setCurrentMinute(cal.get(Calendar.MINUTE));
-		
-		cal.set(datePicker.getYear(), datePicker.getMonth(),
-				datePicker.getDayOfMonth(), timePicker.getCurrentHour(),
-				timePicker.getCurrentMinute(), 00);
 	}
 	
 	private void loadMyFriends() {
@@ -143,6 +140,9 @@ public class InvitationFragment extends DialogFragment implements OnClickListene
 		Log.d("DEBUG", "MSG: " + msg);
 		
 		// Get the selected date&time
+		cal.set(datePicker.getYear(), datePicker.getMonth(),
+				datePicker.getDayOfMonth(), timePicker.getCurrentHour(),
+				timePicker.getCurrentMinute(), 00);
 		String invitationDate = cal.getTime().toString();
 		Log.d("DEBUG", "Date: " + invitationDate);
 		
@@ -158,7 +158,12 @@ public class InvitationFragment extends DialogFragment implements OnClickListene
 		}
 		
 		// send invitation
-		ParseClient.pushToUsers(selectedUsers, invitation.toString());
+		Log.d("DEBUG", invitation.toString());
+		if (selectedUsers.size() != 0) {
+			ParseClient.pushToUsers(selectedUsers, invitation.toString());
+		} else {
+			Toast.makeText(getActivity(), "Please select at least one friend", Toast.LENGTH_SHORT).show();
+		}
 		
 		// TODO: close the dialog
 		
