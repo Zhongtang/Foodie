@@ -37,17 +37,7 @@ public class ParseClient {
             
         ParseObject.registerSubclass(Friends.class);    // register need to be called before initialize
         Parse.initialize(context, "8XfMtfEQT44xBf8qS8iucwai3JTfZOmg2EF4Yr4w", "uANkznUoVmJVgzn484HYWHTOrC97bxIR8aPQ1CeR");
-        PushService.setDefaultPushCallback(context, RestaurantListActivity.class);
-        
-        // Grant accounts, setup friendships
-        // One-time set-up for test. comment out in the second run
-        userSignUp("ztian", "iamztian");
-        userSignUp("zenith", "iamzenith");
-        userSignUp("stone", "iamstone");
-        
-        makeFriends("ztian", "zenith");
-        makeFriends("ztian", "stone");
-        makeFriends("stone", "zenith");      
+        PushService.setDefaultPushCallback(context, RestaurantListActivity.class);    
     }
 
     private void userSignUp(String username, String password) {
