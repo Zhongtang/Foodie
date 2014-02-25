@@ -6,8 +6,8 @@
 
     <ImageView
         android:id="@+id/ivFoodieUserStatus"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
         android:layout_gravity="center_vertical"
         android:src="@drawable/ic_foodie_user_status_on" />
 
@@ -20,6 +20,6 @@
         android:text="Small Text"
         android:textAlignment="textStart"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textSize="24sp" />
+        android:textSize="18sp" />
 
 </LinearLayout>

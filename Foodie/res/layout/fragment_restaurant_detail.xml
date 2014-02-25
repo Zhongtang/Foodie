@@ -11,7 +11,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:textColor="#000000"
-        android:textSize="12sp" />
+        android:textSize="24sp" />
 
     <RatingBar
         android:id="@+id/rbRating"
