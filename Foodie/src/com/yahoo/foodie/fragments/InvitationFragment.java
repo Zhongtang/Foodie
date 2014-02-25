@@ -161,10 +161,11 @@ public class InvitationFragment extends DialogFragment implements OnClickListene
 		Log.d("DEBUG", invitation.toString());
 		if (selectedUsers.size() != 0) {
 			ParseClient.pushToUsers(selectedUsers, invitation.toString());
+			Toast.makeText(getActivity(), "invites have been sent to users " + selectedUsers.toString(), Toast.LENGTH_SHORT).show();
 		} else {
 			Toast.makeText(getActivity(), "Please select at least one friend", Toast.LENGTH_SHORT).show();
 		}
-		
+		dismiss();
 		// TODO: close the dialog
 		
 	}
