@@ -28,7 +28,7 @@
     <style name="listViewActivatedStyle" />
 
     <style name="quickContactBadgeStyle">
-        <item name="android:background">@drawable/quickcontact_badge_small</item>
+        <item name="android:background">@drawable/drawable_back</item>
     </style>
 
     <style name="searchTextHiglight">

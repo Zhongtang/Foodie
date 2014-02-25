@@ -1,8 +1,11 @@
 package com.yahoo.foodie.fragments;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -13,8 +16,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TimePicker;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -29,8 +34,18 @@ public class InvitationFragment extends DialogFragment implements OnClickListene
 	private FoodieUserAdapter adapter;
 	private ListView lvFriends;
 	private Button btnInvite;
+	private Button btnCancel;
 	private EditText etMsg;
 
+	private DatePicker datePicker;
+	private TimePicker timePicker;
+	private Calendar cal;
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+	}
+	
     public InvitationFragment() {
         // Empty constructor required for DialogFragment
     }
@@ -58,6 +73,29 @@ public class InvitationFragment extends DialogFragment implements OnClickListene
 		etMsg = (EditText) v.findViewById(R.id.etMsg);
 		btnInvite = (Button) v.findViewById(R.id.btnInvite);
 		btnInvite.setOnClickListener((android.view.View.OnClickListener) this);
+		
+		btnCancel=(Button) v.findViewById(R.id.btnCancel);
+		btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getDialog().dismiss();
+            }
+        });
+		
+		datePicker = (DatePicker) v.findViewById(R.id.datePicker);
+		timePicker = (TimePicker) v.findViewById(R.id.timePicker);
+
+		cal = Calendar.getInstance();
+
+		datePicker.init(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH),
+				cal.get(Calendar.DAY_OF_MONTH), null);
+
+		timePicker.setCurrentHour(cal.get(Calendar.HOUR_OF_DAY));
+		timePicker.setCurrentMinute(cal.get(Calendar.MINUTE));
+		
+		cal.set(datePicker.getYear(), datePicker.getMonth(),
+				datePicker.getDayOfMonth(), timePicker.getCurrentHour(),
+				timePicker.getCurrentMinute(), 00);
 	}
 	
 	private void loadMyFriends() {
@@ -79,7 +117,7 @@ public class InvitationFragment extends DialogFragment implements OnClickListene
 	          }
         });
 	}
-
+	
 	// To simplify, self implementing OnClickListener
 	@Override
 	public void onClick(View v) {
@@ -100,12 +138,12 @@ public class InvitationFragment extends DialogFragment implements OnClickListene
 		// Get the text message
 		String msg = etMsg.getText().toString();
 		Log.d("DEBUG", "MSG: " + msg);
-		// TODO: include date & time
+		// TODO: include date & time: pass cal
 		// TODO: compose json invitation
 		// TODO: send invitation
 		// TODO: close the dialog
 		
 		
 	}
-
+	
 }
