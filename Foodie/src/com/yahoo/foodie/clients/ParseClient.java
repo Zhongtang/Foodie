@@ -110,6 +110,23 @@ public class ParseClient {
         });
     }
     
+    // Static method, overloading the previous one
+    // Given a string username, fetch all his friends username, and do something in the callback
+    public static void getMyFriends(final String myUsername, FindCallback<Friends> callback) {
+        ParseQuery<Friends> queryUserReq = ParseQuery.getQuery(Friends.class);
+        queryUserReq.whereEqualTo("userReq", myUsername);
+        
+        ParseQuery<Friends> queryUserAcp = ParseQuery.getQuery(Friends.class);
+        queryUserAcp.whereEqualTo("userAcp", myUsername);
+        
+        List<ParseQuery<Friends>> queries = new ArrayList<ParseQuery<Friends>>();
+        queries.add(queryUserReq);
+        queries.add(queryUserAcp);
+        
+        ParseQuery<Friends> mainQuery = ParseQuery.or(queries);
+        mainQuery.findInBackground(callback);
+    }
+    
     // Setup push for a given user
     private void pushSetup(String username) {
         ParseInstallation installation = ParseInstallation.getCurrentInstallation();

@@ -8,6 +8,9 @@ import android.content.IntentSender;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,6 +28,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.yahoo.foodie.R;
+import com.yahoo.foodie.fragments.InvitationFragment;
 import com.yahoo.foodie.fragments.RestaurantDetailFragment;
 import com.yahoo.foodie.models.Restaurant;
 
@@ -180,7 +184,13 @@ public class RestaurantDetailActivity extends RootActivity implements
 	 }
 
 	public void onInvite(MenuItem mi) {
-		Intent i = new Intent(this, ContactsListActivity.class);
-		startActivity(i);
+		//Intent i = new Intent(this, ContactsListActivity.class);
+		//startActivity(i);
+		
+		// Implementing using Dialog
+		FragmentManager manager = getSupportFragmentManager();
+		InvitationFragment fgmtInvite = InvitationFragment.newInstance("Send an Invitation");
+		fgmtInvite.setStyle(DialogFragment.STYLE_NO_TITLE, 0);
+		fgmtInvite.show(manager, "fragment_invitation");
 	}
 }
