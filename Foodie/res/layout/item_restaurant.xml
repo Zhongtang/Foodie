@@ -45,12 +45,11 @@
         android:textSize="10sp" />
 
     <RatingBar
-        android:id="@+id/rbRating"
+        android:id="@+id/rbRatingInList"
         style="?android:attr/ratingBarStyleSmall"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/tvReviews"
-        android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/tvReviews"
         android:layout_marginLeft="5dp"
         android:layout_toRightOf="@+id/tvReviews"

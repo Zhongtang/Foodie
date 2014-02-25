@@ -44,7 +44,7 @@ public class RestaurantsAdapter extends ArrayAdapter<Restaurant> {
 		TextView tvReviews = (TextView) convertView
 				.findViewById(R.id.tvReviews);
 		RatingBar rbRating = (RatingBar) convertView
-				.findViewById(R.id.rbRating);
+				.findViewById(R.id.rbRatingInList);
 		TextView tvAddr = (TextView) convertView.findViewById(R.id.tvAddr);
 		TextView tvType = (TextView) convertView.findViewById(R.id.tvType);
 
