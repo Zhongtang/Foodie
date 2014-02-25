@@ -51,7 +51,7 @@ public class RestaurantsAdapter extends ArrayAdapter<Restaurant> {
 		// Populate the data into the template view using the data object
 		ImageLoader.getInstance().displayImage(rest.getImageUrl(), ivProfile);
 		tvName.setText(rest.getName());
-		tvPrice.setText("$$"); // fake now
+		tvPrice.setText(""); // fake now
 		Log.d("DEBUG RestaurantAdapter",
 				"review_count: " + rest.getReviewCount());
 		Log.d("DEBUG RestaurantAdapter", "rating: " + rest.getRating());

@@ -65,14 +65,15 @@
         </activity>
         <activity
             android:name="com.yahoo.foodie.activities.RestaurantDetailActivity"
-            android:label="@string/title_activity_restaurant_detail" >
+            android:label="@string/title_activity_restaurant_detail"
+            android:theme="@style/Theme.TranslucentActionBar.ActionBar.Overlay" >
         </activity>
 
         <!--
              MAKE SURE TO CHANGE AS YOUR OWN API KEY!!!
 			Stone: AIzaSyAJ7XQXq3Jzo241_-eDbxvA5A81BE2R4Ao
 			Zenith: AIzaSyCNHIt0mPX9BAANeXb_QDmqFEfsJFGIm5g
-			Zhongtang: 
+			Zhongtang: 
         -->
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"

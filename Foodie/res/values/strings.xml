@@ -21,6 +21,7 @@
     <string name="sfa_tvDistance">Distance</string>
     <string name="submit_search">Done</string>
     <string name="search">Search</string>
+    <string name="nulll"></string>
 
     <string-array name="sfa_spDistance">
         <item>Auto</item>

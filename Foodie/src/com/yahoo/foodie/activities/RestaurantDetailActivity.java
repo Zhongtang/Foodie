@@ -3,6 +3,7 @@ package com.yahoo.foodie.activities;
 import java.io.IOException;
 import java.util.List;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.location.Address;
@@ -59,6 +60,8 @@ public class RestaurantDetailActivity extends RootActivity implements
 				map.setMyLocationEnabled(true);
 			}
 		}
+		getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+		getActionBar().setCustomView(R.layout.display_restaurant_detail);
 	}
 
 	@Override
